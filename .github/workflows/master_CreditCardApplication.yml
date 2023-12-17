@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://creditcardazure.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_2b39a95438444d83903e1b8fee1ed53b }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_8d78f4548d7a41469c80c365382c80e8 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_7d6f39d90c434dfdae610c5a0d37797d }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_d30bd25473084c1e9993f2014001f0b1 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: creditcardazure.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2b39a95438444d83903e1b8fee1ed53b }}/credit-card:${{ github.sha }}
+        tags: creditcardazure.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7d6f39d90c434dfdae610c5a0d37797d }}/credit-card:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'CreditCardApplication'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6e13338936a54a7286d8d69084f07e2f }}
-        images: 'creditcardazure.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2b39a95438444d83903e1b8fee1ed53b }}/credit-card:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a93923f637c1446fbf9e07ca5a3fdb2f }}
+        images: 'creditcardazure.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7d6f39d90c434dfdae610c5a0d37797d }}/credit-card:${{ github.sha }}'
