@@ -1,0 +1,17 @@
+﻿@using Contentful.Core.Models
+
+@model ContentfulCollection<CreditCard>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="Credit Cards">
+    <h1 class="display-4">Welcome</h1>
+    @foreach (var card in Model)
+    {
+        <h2>@card.Issuer</h2>
+        <h2>@card.Fee</h2>
+        <h2>@card.Type</h2>
+    }
+</div>
